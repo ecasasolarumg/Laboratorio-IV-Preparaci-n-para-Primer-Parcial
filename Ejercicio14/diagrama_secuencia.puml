@@ -1,0 +1,23 @@
+@startuml
+actor Estudiante
+participant "Biblioteca" as Sistema
+participant "BaseDeDatos" as BD
+
+Estudiante -> Sistema: prestarLibro("Programación I")
+activate Sistema
+
+Sistema -> BD: consultarDisponibilidad("Programación I")
+activate BD
+
+BD --> Sistema: disponible = true
+deactivate BD
+
+Sistema -> BD: registrarPrestamo(Estudiante)
+activate BD
+
+BD --> Sistema: confirmacionRegistro
+deactivate BD
+
+Sistema --> Estudiante: mostrarMensaje("Préstamo exitoso")
+deactivate Sistema
+@enduml

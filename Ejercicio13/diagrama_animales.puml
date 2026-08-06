@@ -1,0 +1,25 @@
+@startuml
+abstract class Animal {
+  - nombre: String
+  - edad: int
+  + Animal(nombre: String, edad: int)
+  + hacerSonido(): void
+  + getNombre(): String
+}
+
+class Perro {
+  - raza: String
+  + Perro(nombre: String, edad: int, raza: String)
+  + hacerSonido(): void
+}
+
+class Gato {
+  - color: String
+  + Gato(nombre: String, edad: int, color: String)
+  + hacerSonido(): void
+}
+
+' Relaciones de herencia
+Animal <|-- Perro
+Animal <|-- Gato
+@enduml
